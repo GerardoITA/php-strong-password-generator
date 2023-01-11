@@ -7,6 +7,11 @@
     <style>
     <?php include 'style.css'; ?>
     </style>    
+    <?php
+        session_start();
+        include 'logic.php';
+    ?>
+
     <title>Strong Password Generator</title>
 </head>
 <body>
@@ -14,12 +19,20 @@
 
         <h1>Strong password generator</h1>
         <h3>Genera una password sicura</h3>
-        <div class="warning">
-
+        <div class="warning hidden">
+            Nessun parametro valido inserito
         </div>
-        <div class="form">
-
-        </div>
+        <form class="form" method="POST">
+            <div id="form_length">
+                <input type="text" name="passlength">
+            </div>
+            <div id="form_parameters">
+                
+            </div>
+            <div id="form_send">
+                
+            </div>
+        </form>
     </div>
 </body>
 </html>
