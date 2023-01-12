@@ -1,5 +1,5 @@
 <?php
-function generaPassword($passwordLength)
+/* function generaPassword($passwordLength)
 {
     $password = '';
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=';
@@ -9,9 +9,9 @@ function generaPassword($passwordLength)
         $pass .= $characters[$character];
     }
     return $password;
-};
+}; */
 
-
+/* require_once __DIR__ . '/logic.php'; */
 
 
 ?>
