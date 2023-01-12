@@ -7,10 +7,18 @@
     <style>
     <?php include 'style.css'; ?>
     </style>    
-    <?php
+   < <?php
         session_start();
-        include 'logic.php';
-    ?>
+        require_once __DIR__ . '/logic.php';
+        
+    $passwordLength = $_GET['passlength'] ?? -1;
+
+    if ($passwordLength > 0) {
+        $password = generaPassword($passwordLength);
+        $_SESSION['password'] = $password;
+        };   
+    
+    ?> 
 
     <title>Strong Password Generator</title>
 </head>
@@ -22,10 +30,16 @@
         <div class="warning hidden">
             Nessun parametro valido inserito
         </div>
-        <form class="form" method="POST">
+        <form class="form">
             <div id="form_length">
                 <label for="passLength">Lunghezza password:</label>
-                <input type="text" name="passlength">
+                <input type="text" name="passlength"
+                    <?php
+                        if ($passwordLength > 0) {
+                            echo "value='" . $passwordLength . "'";
+                        };
+                    ?>
+                >
                 <input type="submit" value="Genera">
             </div>
             <div id="form_parameters">
@@ -35,21 +49,7 @@
                 
             </div>
         </form>
-        <div class="pass"
-        <?
-        if ($passwordLength != false){
-            function generaPassword($lunghezza) {
-            for ( $i = 0; $i < $lunghezza; $i++ ){
-                $pass = '';
-                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=';
-                $character = rand(0, $lunghezza);
-                $pass += $characters[$character];
-            }
-            return $pass;
-            };
-        }
-        ?>
-        >
+        <div class="pass"<? echo $password?>>
 
         </div>
         
